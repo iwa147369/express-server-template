@@ -1,0 +1,28 @@
+# Logs
+logs
+*.log
+
+# Environment variables
+.env
+
+# Dependency directories
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# Testing artifacts
+coverage/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Config files (if applicable)
+# Add any configuration files specific to your project that should not be tracked by Git.
