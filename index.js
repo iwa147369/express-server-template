@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const exampleRoutes = require('./routes/exampleRoute');
+const requestLogger = require('./middlewares/requestLogger');
 
 // Create an instance of Express
 const app = express();
@@ -10,6 +11,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
+
+// Apply the requestLogger middleware to all requests
+app.use(requestLogger);
 
 // Routes
 app.use('/', exampleRoutes);
