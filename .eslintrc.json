@@ -1,31 +1,40 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
+        "node": true,
         "es2021": true
     },
     "extends": "eslint:recommended",
-    "overrides": [
-    ],
+    "overrides": [],
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
     "rules": {
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "linebreak-style": [
             "error",
-            "windows"
+            "unix"
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console": "off",
+        "no-unused-vars": [
+            "error",
+            { 
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_" 
+            }
+        ],
+        "prefer-const": "error",
+        "no-var": "error"
     }
 }

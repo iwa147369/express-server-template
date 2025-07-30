@@ -1,9 +1,14 @@
 # Logs
 logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Environment variables
 .env
+.env.local
+.env.*.local
 
 # Dependency directories
 node_modules/
@@ -16,13 +21,42 @@ build/
 .vscode/
 .idea/
 *.sublime-*
+*.swp
+*.swo
 
 # Testing artifacts
 coverage/
+.nyc_output
 
-# Miscellaneous
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Config files (if applicable)
-# Add any configuration files specific to your project that should not be tracked by Git.
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Temporary files
+tmp/
+temp/
+
+# Lock files (keep package-lock.json for consistency)
+# yarn.lock

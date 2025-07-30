@@ -1,0 +1,396 @@
+{
+  "info": {
+    "name": "Google Sheets Retail Management API",
+    "description": "Complete API collection for testing Google Sheets Retail Management endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api"
+    }
+  ],
+  "item": [
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          }
+        },
+        {
+          "name": "API Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/info",
+              "host": ["{{baseUrl}}"],
+              "path": ["info"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/filter",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "filter"],
+              "query": [
+                {
+                  "key": "channel",
+                  "value": "online",
+                  "disabled": true
+                },
+                {
+                  "key": "platform",
+                  "value": "shopee",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Order Date\": \"2025-01-15\",\n  \"Channel\": \"Online\",\n  \"Remark\": \"Rush order\",\n  \"Platform\": \"Shopee\",\n  \"Username\": \"customer123\",\n  \"Recipient\": \"John Doe\",\n  \"Phone Number\": \"+1234567890\",\n  \"Address\": \"123 Main St, City, State\",\n  \"Process\": \"Processing\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["products"]
+            }
+          }
+        },
+        {
+          "name": "Get Low Stock Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/low-stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "low-stock"]
+            }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/id/PROD001",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "id", "PROD001"]
+            }
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Product ID\": \"PROD001\",\n  \"Product Name\": \"Wireless Headphones\",\n  \"Selling Price\": 99.99,\n  \"Current Stock\": 50,\n  \"Min Stock\": 10\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["products"]
+            }
+          }
+        },
+        {
+          "name": "Update Product Stock",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adjustment\": -5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/PROD001/stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["products", "PROD001", "stock"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Get All Transactions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transactions",
+              "host": ["{{baseUrl}}"],
+              "path": ["transactions"]
+            }
+          }
+        },
+        {
+          "name": "Get Transaction Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transactions/summary",
+              "host": ["{{baseUrl}}"],
+              "path": ["transactions", "summary"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "sale",
+                  "disabled": true
+                },
+                {
+                  "key": "date_from",
+                  "value": "2025-01-01",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Transaction",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Transaction ID\": \"TXN001\",\n  \"Date\": \"2025-01-15\",\n  \"Category\": \"Sale\",\n  \"Amount\": 199.98,\n  \"From\": \"Customer\",\n  \"To\": \"Company\",\n  \"Confirmed\": false,\n  \"Note\": \"Product sale transaction\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transactions",
+              "host": ["{{baseUrl}}"],
+              "path": ["transactions"]
+            }
+          }
+        },
+        {
+          "name": "Confirm Transaction",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"confirmed\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transactions/TXN001/confirm",
+              "host": ["{{baseUrl}}"],
+              "path": ["transactions", "TXN001", "confirm"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Batches",
+      "item": [
+        {
+          "name": "Get All Batches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/batches",
+              "host": ["{{baseUrl}}"],
+              "path": ["batches"]
+            }
+          }
+        },
+        {
+          "name": "Get Inventory Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/batches/inventory-summary",
+              "host": ["{{baseUrl}}"],
+              "path": ["batches", "inventory-summary"]
+            }
+          }
+        },
+        {
+          "name": "Get Batches by Product ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/batches/product/PROD001",
+              "host": ["{{baseUrl}}"],
+              "path": ["batches", "product", "PROD001"]
+            }
+          }
+        },
+        {
+          "name": "Create Batch",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Batch ID\": \"BATCH001\",\n  \"Product ID\": \"PROD001\",\n  \"Unit Cost Price\": 45.00,\n  \"Quantity\": 100,\n  \"Import Date\": \"2025-01-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/batches",
+              "host": ["{{baseUrl}}"],
+              "path": ["batches"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Order Details",
+      "item": [
+        {
+          "name": "Get All Order Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/order-details",
+              "host": ["{{baseUrl}}"],
+              "path": ["order-details"]
+            }
+          }
+        },
+        {
+          "name": "Get Order Details by Order ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/order-details/order/ORD001",
+              "host": ["{{baseUrl}}"],
+              "path": ["order-details", "order", "ORD001"]
+            }
+          }
+        },
+        {
+          "name": "Create Order Detail",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Order ID\": \"ORD001\",\n  \"Product ID\": \"PROD001\",\n  \"Selling Price\": 99.99,\n  \"Total Selling Price\": 199.98,\n  \"Size\": \"M\",\n  \"Color\": \"Black\",\n  \"Batch ID\": \"BATCH001\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/order-details",
+              "host": ["{{baseUrl}}"],
+              "path": ["order-details"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
